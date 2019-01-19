@@ -30,8 +30,17 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Effects")
+	UParticleSystem* PickupFX;
+
+	// effects
+	void PlayEffects();
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	// overlap event function 
+	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
 
 };

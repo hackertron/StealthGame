@@ -34,7 +34,7 @@ protected:
 
 	// Marked with ufunction to bind to overlap events
 	UFUNCTION()
-	void overlapSphereComp(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp,  )
+		void overlapSphereComp(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
 public:	
 	// Called every frame

@@ -33,4 +33,16 @@ void AFPSExtractionZone::HandleOverlap(UPrimitiveComponent* OverlappedComponent,
 {
 
 	UE_LOG(LogTemp, Log, TEXT("Overlapped with extraction zone!"));
+
+	AFPSCharacter* MyPawn = Cast<AFPSCharacter>(OtherActor);
+	if (MyPawn && MyPawn->bIsCarryingObjective)
+	{
+		AFPSGameMode* GM = Cast<AFPSGameMode>(GetWorld()->GetAuthGameMode());
+		if (GM)
+		{
+			GM->CompleteMission(MyPawn);
+		}
+
+	}
+
 }
